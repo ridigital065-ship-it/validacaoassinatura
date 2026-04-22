@@ -2,17 +2,78 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<title>Documento Assinado</title>
+<title>Validação de Documento</title>
 
 <style>
 body {
   margin: 0;
-  background: #f5f5f5;
   font-family: Arial;
+  background: #f5f5f5;
+}
+
+/* TOPO */
+.topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: #0f7f79;
+}
+
+/* BANNER */
+.banner {
+  background: #041c3b;
+  color: white;
+  padding: 80px 20px;
   text-align: center;
 }
 
-h2 {
+.banner h1 {
+  font-size: 32px;
+}
+
+.banner p {
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+/* VALIDAÇÃO */
+.box {
+  background: white;
+  margin: -50px auto 20px;
+  padding: 30px;
+  width: 90%;
+  max-width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+input {
+  width: 90%;
+  padding: 12px;
+  margin-top: 10px;
+}
+
+button {
+  margin-top: 15px;
+  padding: 12px 20px;
+  background: #0f7f79;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* DOCUMENTO */
+.documento {
+  display: none;
   padding: 20px;
 }
 
@@ -21,8 +82,8 @@ h2 {
   width: 90%;
   max-width: 800px;
   background: white;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
   padding: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
 img {
@@ -33,23 +94,60 @@ img {
 
 <body>
 
-<h2>Documento</h2>
-
-<div class="pagina">
-  <img src="documento1.jpg.jpg">
+<!-- TOPO -->
+<div class="topo">
+  <div class="logo">Validação</div>
 </div>
 
-<div class="pagina">
-  <img src="documento2.jpg.jpg">
+<!-- BANNER -->
+<div class="banner">
+  <h1>Validação de Documento</h1>
+  <p>Insira o código para acessar o documento</p>
 </div>
 
-<div class="pagina">
-  <img src="documento3.jpg.jpg">
+<!-- LOGIN -->
+<div class="box" id="login">
+  <h3>Validar Documento</h3>
+  <input type="text" id="codigo" placeholder="Digite o código">
+  <br>
+  <button onclick="validar()">Validar</button>
+
+  <p id="erro" style="color:red; display:none;">Código inválido</p>
 </div>
 
-<div class="pagina">
-  <img src="documento4.jpg.jpg">
+<!-- DOCUMENTO -->
+<div class="documento" id="documento">
+
+  <div class="pagina">
+    <img src="documento1.jpg">
+  </div>
+
+  <div class="pagina">
+    <img src="documento2.jpg">
+  </div>
+
+  <div class="pagina">
+    <img src="documento3.jpg">
+  </div>
+
+  <div class="pagina">
+    <img src="documento4.jpg">
+  </div>
+
 </div>
+
+<script>
+function validar() {
+  const codigo = document.getElementById("codigo").value;
+
+  if (codigo === "ACB34566ACBGHFFG") {
+    document.getElementById("login").style.display = "none";
+    document.getElementById("documento").style.display = "block";
+  } else {
+    document.getElementById("erro").style.display = "block";
+  }
+}
+</script>
 
 </body>
 </html>
