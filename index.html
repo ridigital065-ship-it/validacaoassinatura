@@ -44,50 +44,24 @@ body {
   font-size: 18px;
 }
 
-/* VALIDAÇÃO */
-.box {
-  background: white;
-  margin: -50px auto 20px;
-  padding: 30px;
-  width: 90%;
-  max-width: 400px;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  text-align: center;
-}
-
-input {
-  width: 90%;
-  padding: 12px;
-  margin-top: 10px;
-}
-
-button {
-  margin-top: 15px;
-  padding: 12px 20px;
-  background: #0f7f79;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
 /* DOCUMENTO */
 .documento {
-  display: none;
-  padding: 20px;
+  padding: 30px;
 }
 
 .pagina {
-  margin: 20px auto;
+  margin: 30px auto;
   width: 90%;
   max-width: 800px;
   background: white;
   padding: 10px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  border-radius: 8px;
 }
 
 img {
   width: 100%;
+  border-radius: 5px;
 }
 </style>
 </head>
@@ -97,26 +71,17 @@ img {
 <!-- TOPO -->
 <div class="topo">
   <div class="logo">Validação</div>
+  <div>Documento eletrônico</div>
 </div>
 
 <!-- BANNER -->
 <div class="banner">
-  <h1>Validação de Documento</h1>
-  <p>Insira o código para acessar o documento</p>
-</div>
-
-<!-- LOGIN -->
-<div class="box" id="login">
-  <h3>Validar Documento</h3>
-  <input type="text" id="codigo" placeholder="Digite o código">
-  <br>
-  <button onclick="validar()">Validar</button>
-
-  <p id="erro" style="color:red; display:none;">Código inválido</p>
+  <h1>Documento Validado</h1>
+  <p>Visualização oficial do documento eletrônico</p>
 </div>
 
 <!-- DOCUMENTO -->
-<div class="documento" id="documento">
+<div class="documento">
 
   <div class="pagina">
     <img src="documento1.jpg">
@@ -135,19 +100,6 @@ img {
   </div>
 
 </div>
-
-<script>
-function validar() {
-  const codigo = document.getElementById("codigo").value;
-
-  if (codigo === "ACB34566ACBGHFFG") {
-    document.getElementById("login").style.display = "none";
-    document.getElementById("documento").style.display = "block";
-  } else {
-    document.getElementById("erro").style.display = "block";
-  }
-}
-</script>
 
 </body>
 </html>
